@@ -1,6 +1,9 @@
 // Syntax version
 syntax = "proto3";
 
+// The folder directory from the project root
+option go_package = "./protos";
+
 // Package name
 package userproto;
 

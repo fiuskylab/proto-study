@@ -21,23 +21,26 @@ Step-by-step on how to implement gRPC in a simple API.
 ### 2. Creating Protos
 - Now is needed to write out `proto` file
 - So create a `protos/user.proto`
-```
+```proto
 // Syntax version
 syntax = "proto3";
 
 // Package name
 package userproto;
 
+// The same as the go.mod file, more the directory to the folder
+option go_package = "github.com/fiuskylab/proto-study/protos";
+
 // Message can be interpreted as a struct
 // An aggregate of fields with types
 message UserRequest {
   // User identifier
-  string uuid = 0;
+  string uuid = 1;
 
   // Name field
-  string name = 1;
+  string name = 2;
 
-  uint32 age = 2;
+  uint32 age = 3;
   // Age
 
   // User roles
@@ -49,13 +52,13 @@ message UserRequest {
   }
 
   // Role
-  Role role = 3;
+  Role role = 4;
 
   // Email
-  string email = 4;
+  string email = 5;
 
   // Password
-  string password = 5;
+  string password = 6;
 }
 
 // The service will the struct that store all method of this proto
@@ -65,3 +68,9 @@ service CRUD {
   rpc CreateUser (UserRequest) returns (UserRequest) {}
 }
 ```
+
+### 3. Generating proto
+- First need to install the "proto compiler"
+- > $ go install google.golang.org/protobuf/cmd/protoc-gen-go
+- Now to "compile" it, just run
+- > $ protoc --go_out=./ protos/user.proto
