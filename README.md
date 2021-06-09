@@ -73,7 +73,11 @@ service CRUD {
 - First need to install the "proto compiler"
 - > $ go install google.golang.org/protobuf/cmd/protoc-gen-go
 - Now to "compile" it, just run
-- > $ protoc --go_out=./ protos/user.proto
+```shell
+$ protoc --go_out=./ --go_opt=paths=source_relative \
+    --go-grpc_out=./ --go-grpc_opt=paths=source_relative \
+    protos/user.proto
+```
 
 ### 4. Add Entity
 - To write the users into a JSON file, we need to create an Entity
