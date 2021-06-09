@@ -5,6 +5,9 @@ Step-by-step on how to implement gRPC in a simple API.
 - A simple user CRUD
 - The database will be a JSON file
 
+## References
+- [gRPC.io](https://grpc.io/docs/languages/go/)
+
 ## Step-by-step
 ### 1. Initiating Go mod
 - Go modules will allow us to easily add third-party/external packages
