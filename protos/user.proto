@@ -8,12 +8,12 @@ package userproto;
 // An aggregate of fields with types
 message UserRequest {
   // User identifier
-  string uuid = 0;
+  string uuid = 1;
 
   // Name field
-  string name = 1;
+  string name = 2;
 
-  uint32 age = 2;
+  uint32 age = 3;
   // Age
 
   // User roles
@@ -25,13 +25,13 @@ message UserRequest {
   }
 
   // Role
-  Role role = 3;
+  Role role = 4;
 
   // Email
-  string email = 4;
+  string email = 5;
 
   // Password
-  string password = 5;
+  string password = 6;
 }
 
 // The service will the struct that store all method of this proto
